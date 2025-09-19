@@ -40,20 +40,39 @@ export default function Home() {
     setChatInput("");
 
     try {
+      // Include the current user message and ensure the first history item is a user
+      // message (Gemini requires the first content to be from the user). Also use
+      // the 'assistant' role for replies rather than 'model'.
+      const ordered = [userMessage, ...chatMessages];
+      const historyToSend = ordered.map(msg => ({
+        role: msg.sender === 'You' ? 'user' : 'assistant',
+        parts: [{ text: msg.text }]
+      }));
+
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           prompt: userMessage.text,
-          history: chatMessages.map(msg => ({
-            role: msg.sender === 'You' ? 'user' : 'model',
-            parts: [{ text: msg.text }]
-          }))
+          history: historyToSend,
         }),
       });
 
       if (!response.ok) {
-        throw new Error('API request failed');
+        // Try to parse a helpful error message from the server
+        let serverText = '';
+        try {
+          const errBody = await response.json();
+          serverText = errBody?.error || JSON.stringify(errBody);
+        } catch (e) {
+          serverText = await response.text().catch(() => 'Unknown server error');
+        }
+        console.error('API error', response.status, serverText);
+        // Surface the server error to the user but don't throw to avoid an uncaught
+        // exception inside the client rendering pipeline.
+        setMessageBox({ show: true, text: `Sora error: ${serverText || response.statusText}` });
+        setConnectionStatus("Disconnected");
+        return;
       }
 
       const data = await response.json();
