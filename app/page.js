@@ -93,11 +93,14 @@ export default function Home() {
     <div className="bg-blue-100 min-h-screen flex flex-col p-4">
       {/* Header */}
       <header className="flex justify-between items-center mb-4">
-        <div className="flex items-center">
-          <h1 className="text-2xl font-bold text-blue-800">Pawse</h1>
-          <span className="ml-2 text-xs px-2 py-1 rounded-full bg-yellow-200 text-yellow-800">
-            {connectionStatus}
-          </span>
+        <div className="flex items-center gap-1">
+          <h1 className="text-2xl font-bold text-blue-800">Pawse
+          
+          </h1>
+          <div>
+            <img src="/paws.png" alt=""  width={33}/>
+          </div>
+          
         </div>
         <div className="flex items-center space-x-2">
           {["happy", "calm", "sad", "anxious"].map((mood) => (
