@@ -1,5 +1,11 @@
-"use client"
-import { useState } from "react";
+'use client';
+
+import { useState } from 'react';
+import img from 'next/image';
+
+const initialChatHistory = [
+  { sender: 'Sora', text: "Hello! I'm here to listen. How are you feeling today?" }
+];
 
 export default function Home() {
   const [connectionStatus, setConnectionStatus] = useState("Connecting...");
@@ -7,7 +13,8 @@ export default function Home() {
   const [points, setPoints] = useState(0);
   const [messageBox, setMessageBox] = useState({ show: false, text: "" });
   const [chatInput, setChatInput] = useState("");
-  const [chatMessages, setChatMessages] = useState([]);
+  const [chatMessages, setChatMessages] = useState(initialChatHistory);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Mood logging handler
   const logMood = (mood) => {
@@ -24,17 +31,43 @@ export default function Home() {
   };
 
   // Chat send handler
-  const handleSend = () => {
-    if (chatInput.trim() === "") return;
-    setChatMessages((prev) => [...prev, { sender: "You", text: chatInput }]);
+  const handleSend = async () => {
+    if (chatInput.trim() === "" || isLoading) return;
+
+    setIsLoading(true);
+    const userMessage = { sender: "You", text: chatInput };
+    setChatMessages((prev) => [...prev, userMessage]);
     setChatInput("");
-    // Simulate Sora's reply
-    setTimeout(() => {
-      setChatMessages((prev) => [
-        ...prev,
-        { sender: "Sora", text: "I'm here for you! 😊" },
-      ]);
-    }, 800);
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          prompt: userMessage.text,
+          history: chatMessages.map(msg => ({
+            role: msg.sender === 'You' ? 'user' : 'model',
+            parts: [{ text: msg.text }]
+          }))
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+
+      const data = await response.json();
+      const soraMessage = { sender: "Sora", text: data.text };
+      setChatMessages((prev) => [...prev, soraMessage]);
+      setConnectionStatus("Connected");
+
+    } catch (error) {
+      console.error("Frontend error:", error);
+      setMessageBox({ show: true, text: "Sorry, I'm having trouble connecting to Sora." });
+      setConnectionStatus("Disconnected");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -76,11 +109,12 @@ export default function Home() {
           <div className="flex-1 p-4 overflow-y-auto" style={{ minHeight: 120 }}>
             {/* AI Pet Companion */}
             <div className="flex items-center mb-4">
-              
               <img
                 src="https://img.icons8.com/plasticine/100/000000/cat.png"
                 alt="Sora the AI Pet"
-                className="w-16 h-16 rounded-full mr-4"
+                width={64}
+                height={64}
+                className="rounded-full mr-4"
               />
               <div>
                 <p className="font-semibold text-blue-700">Sora</p>
@@ -97,6 +131,20 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+              {isLoading && (
+                <div className="flex items-start">
+                  <img
+                    src="https://img.icons8.com/plasticine/100/000000/cat.png"
+                    alt="Sora"
+                    width={32}
+                    height={32}
+                    className="rounded-full mr-2"
+                  />
+                  <div className="bg-gray-100 rounded-lg p-3 max-w-[80%] animate-pulse">
+                    <span>Sora is typing...</span>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           <div className="p-4 border-t border-gray-200">
@@ -112,6 +160,7 @@ export default function Home() {
               <button
                 className="bg-blue-500 text-white px-4 rounded-r-lg hover:bg-blue-600"
                 onClick={handleSend}
+                disabled={isLoading}
               >
                 Send
               </button>
