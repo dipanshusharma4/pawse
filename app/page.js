@@ -178,7 +178,7 @@ export default function Home() {
               {isLoading && (
                 <div className="flex items-start">
                   <Image
-                    src="https://img.icons8.com/plasticine/100/000000/cat.png"
+                    src="/cat.svg"
                     alt="Sora"
                     width={32}
                     height={32}
