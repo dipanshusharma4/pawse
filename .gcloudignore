@@ -1,0 +1,10 @@
+.git
+.gitignore
+README.md
+.dockerignore
+Dockerfile
+.next/
+node_modules/
+npm-debug.log
+.env.local
+firebase-debug.log
