@@ -110,7 +110,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex items-center space-x-2">
-          {["happy", "calm", "sad", "anxious"].map((mood) => (
+          {["Happy", "Calm", "Sad", "Anxious"].map((mood) => (
             <button
               key={mood}
               className={`text-2xl rounded-full transition-colors duration-150 cursor-pointer ${
@@ -121,10 +121,10 @@ export default function Home() {
               onClick={() => logMood(mood)}
               aria-label={mood}
             >
-              {mood === "happy" && "😊"}
-              {mood === "calm" && "😌"}
-              {mood === "sad" && "😢"}
-              {mood === "anxious" && "😟"}
+              {mood === "Happy" && "😊"}
+              {mood === "Calm" && "😌"}
+              {mood === "Sad" && "😢"}
+              {mood === "Anxious" && "😟"}
             </button>
           ))}
         </div>

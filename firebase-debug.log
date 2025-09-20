@@ -1,0 +1,94 @@
+[debug] [2025-09-20T08:41:53.698Z] ----------------------------------------------------------------------
+[debug] [2025-09-20T08:41:53.700Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dipanshu\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-09-20T08:41:53.700Z] CLI Version:   14.17.0
+[debug] [2025-09-20T08:41:53.700Z] Platform:      win32
+[debug] [2025-09-20T08:41:53.700Z] Node Version:  v22.11.0
+[debug] [2025-09-20T08:41:53.700Z] Time:          Sat Sep 20 2025 14:11:53 GMT+0530 (India Standard Time)
+[debug] [2025-09-20T08:41:53.700Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-20T08:41:53.706Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-20T08:41:53.707Z] > authorizing via signed-in user (dipanshusharma266105@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Dipanshu\OneDrive\Desktop\Pawse\pawse
+
+[debug] [2025-09-20T08:42:12.223Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (C:\Users\Dipanshu\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\@inquirer\core\dist\commonjs\lib\create-prompt.js:101:37)
+    at Interface.emit (node:events:518:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1124:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:263:20)
+    at ReadStream.emit (node:events:530:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:370:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-09-20T08:42:31.399Z] ----------------------------------------------------------------------
+[debug] [2025-09-20T08:42:31.401Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dipanshu\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-09-20T08:42:31.401Z] CLI Version:   14.17.0
+[debug] [2025-09-20T08:42:31.401Z] Platform:      win32
+[debug] [2025-09-20T08:42:31.401Z] Node Version:  v22.11.0
+[debug] [2025-09-20T08:42:31.401Z] Time:          Sat Sep 20 2025 14:12:31 GMT+0530 (India Standard Time)
+[debug] [2025-09-20T08:42:31.401Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-20T08:42:31.407Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-20T08:42:31.407Z] > authorizing via signed-in user (dipanshusharma266105@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Dipanshu\OneDrive\Desktop\Pawse\pawse
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-09-20T08:42:42.931Z] Using project from CLI flag: pawse-fa8af
+[debug] [2025-09-20T08:42:42.932Z] Checked if tokens are valid: false, expires at: 1758323336834
+[debug] [2025-09-20T08:42:42.932Z] Checked if tokens are valid: false, expires at: 1758323336834
+[debug] [2025-09-20T08:42:42.933Z] > refreshing access token with scopes: []
+[debug] [2025-09-20T08:42:42.934Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-20T08:42:42.934Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-20T08:42:43.165Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-20T08:42:43.165Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-20T08:42:43.174Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pawse-fa8af [none]
+[debug] [2025-09-20T08:42:43.561Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pawse-fa8af 200
+[debug] [2025-09-20T08:42:43.561Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pawse-fa8af {"projectId":"pawse-fa8af","projectNumber":"679436669422","displayName":"PAWSE","name":"projects/pawse-fa8af","resources":{"hostingSite":"pawse-fa8af"},"state":"ACTIVE","etag":"1_454f4a7c-b038-4aa9-b9c4-d6ad45e56463"}
+[info] i  Using project pawse-fa8af (PAWSE) 
+[info] 
+=== Hosting Setup
+[debug] [2025-09-20T08:42:43.717Z] Checked if tokens are valid: true, expires at: 1758361362165
+[debug] [2025-09-20T08:42:43.717Z] Checked if tokens are valid: true, expires at: 1758361362165
+[debug] [2025-09-20T08:42:43.717Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pawse-fa8af [none]
+[debug] [2025-09-20T08:42:44.110Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pawse-fa8af 200
+[debug] [2025-09-20T08:42:44.110Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pawse-fa8af {"projectId":"pawse-fa8af","projectNumber":"679436669422","displayName":"PAWSE","name":"projects/pawse-fa8af","resources":{"hostingSite":"pawse-fa8af"},"state":"ACTIVE","etag":"1_454f4a7c-b038-4aa9-b9c4-d6ad45e56463"}
+[debug] [2025-09-20T08:46:48.616Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (C:\Users\Dipanshu\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\@inquirer\core\dist\commonjs\lib\create-prompt.js:101:37)
+    at Interface.emit (node:events:518:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1124:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:263:20)
+    at ReadStream.emit (node:events:530:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:370:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
