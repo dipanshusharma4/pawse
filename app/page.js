@@ -137,7 +137,7 @@ export default function Home() {
           {/* AI Pet Companion */}
           <div className="flex items-center mb-4">
             <Image
-              src="https://img.icons8.com/plasticine/100/000000/cat.png"
+              src="/cat-kitty-kitten-feline-svgrepo-com (1)"
               alt="Sora the AI Pet"
               width={64}
               height={64}
