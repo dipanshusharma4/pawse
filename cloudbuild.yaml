@@ -1,0 +1,13 @@
+steps:
+# Build the image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'asia-south2-docker.pkg.dev/pawse-fa8af/pawse/pawse', '.']
+# Push the image to Artifact Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'asia-south2-docker.pkg.dev/pawse-fa8af/pawse/pawse']
+# Deploy image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'pawse-service', '--image', 'asia.south2-docker.pkg.dev/pawse-fa8af/pawse/pawse', '--region', 'asia-south2',]
+images:
+- 'asia-south2-docker.pkg.dev/pawse-fa8af/pawse/pawse'
