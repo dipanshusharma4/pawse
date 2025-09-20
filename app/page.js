@@ -139,8 +139,8 @@ export default function Home() {
             <Image
               src="/cat.svg"
               alt="Sora the AI Pet"
-              width={64}
-              height={64}
+              width={48}
+              height={48}
               className="rounded-full mr-4"
             />
             <div className="">
