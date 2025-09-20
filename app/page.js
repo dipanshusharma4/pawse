@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import img from "next/image";
+import Image from "next/image";
 
 const initialChatHistory = [
   {
