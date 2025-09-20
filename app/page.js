@@ -106,7 +106,7 @@ export default function Home() {
         <div className="flex items-center gap-1">
           <h1 className="text-2xl font-bold text-blue-800">Pawse</h1>
           <div>
-            <img src="/paws.png" alt="" width={33} />
+            <Image src="/paws.png" alt="" width={33} />
           </div>
         </div>
         <div className="flex items-center space-x-2">
@@ -136,7 +136,7 @@ export default function Home() {
         <div className="relative flex-1 flex flex-col bg-white rounded-lg shadow-md">
           {/* AI Pet Companion */}
           <div className="flex items-center mb-4">
-            <img
+            <Image
               src="https://img.icons8.com/plasticine/100/000000/cat.png"
               alt="Sora the AI Pet"
               width={64}
@@ -177,7 +177,7 @@ export default function Home() {
               ))}
               {isLoading && (
                 <div className="flex items-start">
-                  <img
+                  <Image
                     src="https://img.icons8.com/plasticine/100/000000/cat.png"
                     alt="Sora"
                     width={32}
@@ -208,7 +208,7 @@ export default function Home() {
                 onClick={handleSend}
                 disabled={isLoading}
               >
-                <img src="/send.svg" alt="" width={18} />
+                <Image src="/send.svg" alt="" width={18} />
               </button>
             </div>
           </div>
@@ -272,7 +272,7 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-4" onClick={() => {setPoints(0)}}>
-                <img src="/reset.svg" alt="" width={22}/>
+                <Image src="/reset.svg" alt="" width={22}/>
             </div>
             </div>
           </div>
@@ -285,7 +285,7 @@ export default function Home() {
               Recent Moods
             </h2>
             <div className="mb-2" onClick={() => {setMoods([])}}>
-                <img src="/reset.svg" alt="" width={22}/>
+                <Image src="/reset.svg" alt="" width={22}/>
             </div>
             </div>
             <ul className="space-y-2 text-sm text-gray-700 font-semibold list-disc px-4">
