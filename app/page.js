@@ -127,8 +127,8 @@ export default function Home() {
       {/* Main Content */}
       <main className="flex-1 flex flex-col md:flex-row gap-4">
         {/* Left Panel: Chat */}
-        <div className="flex-1 flex flex-col bg-white rounded-lg shadow-md">
-          <div className="flex-1 p-4 overflow-y-auto" style={{ minHeight: 120 }}>
+        <div className="relative flex-1 flex flex-col bg-white rounded-lg shadow-md">
+          <div className="flex-1 p-4 overflow-y-auto" style={{ maxHeight: "80vh" }}>
             {/* AI Pet Companion */}
             <div className="flex items-center mb-4">
               <img
@@ -138,7 +138,7 @@ export default function Home() {
                 height={64}
                 className="rounded-full mr-4"
               />
-              <div>
+              <div className= "">
                 <p className="font-semibold text-blue-700">Sora</p>
                 <p className="text-sm text-gray-500">Your wellness companion</p>
               </div>
