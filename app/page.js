@@ -237,7 +237,7 @@ export default function Home() {
                   )
                 }
               >
-                Write down three things you're grateful for
+                Write down three things you&apos;re grateful for
               </button>
               <button
                 className="w-full text-left bg-purple-100 p-2 rounded-lg hover:bg-purple-200 cursor-pointer"
