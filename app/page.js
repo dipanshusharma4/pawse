@@ -106,7 +106,7 @@ export default function Home() {
         <div className="flex items-center gap-1">
           <h1 className="text-2xl font-bold text-blue-800">Pawse</h1>
           <div>
-            <Image src="/paws.png" alt="" width={33} />
+            <Image src="/paws.png" alt="" width={33} height={33} />
           </div>
         </div>
         <div className="flex items-center space-x-2">
@@ -135,14 +135,15 @@ export default function Home() {
         {/* Left Panel: Chat */}
         <div className="relative flex-1 flex flex-col bg-white rounded-lg shadow-md">
           {/* AI Pet Companion */}
-          <div className="flex items-center mb-4">
-            <Image
-              src="/cat.svg"
-              alt="Sora the AI Pet"
-              width={48}
-              height={48}
-              className="rounded-full mr-4"
-            />
+          <div className="flex items-center m-2 object-cover">
+            <div className="rounded-full mr-4 w-16 h-16">
+              <Image
+                src="/cat.svg"
+                alt="Sora the AI Pet"
+                width={64}
+                height={64}
+              />
+            </div>
             <div className="">
               <p className="font-semibold text-blue-700">Sora</p>
               <p className="text-sm text-gray-500">Your wellness companion</p>
@@ -177,13 +178,14 @@ export default function Home() {
               ))}
               {isLoading && (
                 <div className="flex items-start">
-                  <Image
-                    src="/cat.svg"
-                    alt="Sora"
-                    width={32}
-                    height={32}
-                    className="rounded-full mr-2"
-                  />
+                  <div className="rounded-full mr-2">
+                    <Image
+                      src="/cat.svg"
+                      alt="Sora"
+                      width={32}
+                      height={32}
+                    />
+                  </div>
                   <div className=" rounded-lg p-3 max-w-[80%] animate-pulse text-blue-700">
                     <span>Sora is typing...</span>
                   </div>
@@ -208,7 +210,7 @@ export default function Home() {
                 onClick={handleSend}
                 disabled={isLoading}
               >
-                <Image src="/send.svg" alt="" width={18} />
+                <Image src="/send.svg" alt="" width={18} height={18} />
               </button>
             </div>
           </div>
@@ -265,28 +267,36 @@ export default function Home() {
               </button>
             </div>
             <div className="flex justify-between items-center">
-
-            <div className="mt-4">
-              <p className="text-sm text-gray-600">
-                Points: <span className="font-bold">{points}</span>
-              </p>
-            </div>
-            <div className="mt-4" onClick={() => {setPoints(0)}}>
-                <Image src="/reset.svg" alt="" width={22}/>
-            </div>
+              <div className="mt-4">
+                <p className="text-sm text-gray-600">
+                  Points: <span className="font-bold">{points}</span>
+                </p>
+              </div>
+              <div
+                className="mt-4"
+                onClick={() => {
+                  setPoints(0);
+                }}
+              >
+                <Image src="/reset.svg" alt="" width={22} height={22} />
+              </div>
             </div>
           </div>
 
           {/* Mood Log */}
           <div className="bg-white rounded-lg shadow-md p-4 flex-1">
             <div className="flex justify-between items-center">
-
-            <h2 className="text-lg font-semibold text-blue-800 mb-2">
-              Recent Moods
-            </h2>
-            <div className="mb-2" onClick={() => {setMoods([])}}>
-                <Image src="/reset.svg" alt="" width={22}/>
-            </div>
+              <h2 className="text-lg font-semibold text-blue-800 mb-2">
+                Recent Moods
+              </h2>
+              <div
+                className="mb-2"
+                onClick={() => {
+                  setMoods([]);
+                }}
+              >
+                <Image src="/reset.svg" alt="" width={22} height={22} />
+              </div>
             </div>
             <ul className="space-y-2 text-sm text-gray-700 font-semibold list-disc px-4">
               {moods.length === 0 && <li>No moods logged yet.</li>}
